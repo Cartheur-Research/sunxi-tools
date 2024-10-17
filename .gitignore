@@ -1,0 +1,12 @@
+fexc
+bin2fex
+fex2bin
+bootinfo
+fel
+pio
+nand-part
+meminfo
+sunxi-meminfo-static
+*.o
+*.swp
+*~
