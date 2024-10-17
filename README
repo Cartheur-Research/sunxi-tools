@@ -1,8 +1,7 @@
 sunxi-tools
 Copyright (C) 2012  Alejandro Mery <amery@geeks.cl>
 
-Tools to help hacking Allwinner A10 (aka sun4i) based devices and possibly
-it's successors, that's why the 'x' in the package name.
+Tools to help hacking Allwinner A10 (aka sun4i) based devices.
 
 fexc:
 	`.fex` file (de)compiler
@@ -14,7 +13,7 @@ fexc:
 
 bin2fex:
 	compatibility shortcut to call `fexc` to decompile an script.bin
-	blob back into `.fex` format used by allwinner's SDK to configure
+	blob back into `.fex` format used by allwinners SDK to configure
 	the boards.
 
 fex2bin:
