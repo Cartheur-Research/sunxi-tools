@@ -2,7 +2,42 @@
 
 The exact sunxi tools version by NTC.
 
-## Flashing notes
+### Tools to help hacking Allwinner A10 (aka sun4i) based devices and possibly it's successors, that's why the 'x' in the package name.
+
+fexc: .fex file (de)compiler
+
+Usage: ./fexc [-vq] [-I <infmt>] [-O <outfmt>] [<input> [<output>]]
+
+infmt:  fex, bin  (default:fex)
+outfmt: fex, bin  (default:bin)
+
+bin2fex: compatibility shortcut to call fexc to decompile an script.bin blob back into .fex format used by allwinner's SDK to configure the boards.
+
+fex2bin: compatiblity shortcut to call fexc to compile a .fex file into the binary form used by the sun4i kernel.
+
+fel: script interface for talking to the FEL USB handler built in to th CPU. You activate FEL mode by pushing the usboot/recovery button at poweron. See http://linux-sunxi.org/FEL/USBBoot for a detailed usage guide.
+
+fel-gpio: Simple wrapper around fel-pio and fel to allos GPIO manipulations via FEL
+
+fel-sdboot: ARM native sdcard bootloader forcing the device into FEL mode
+
+fel-pio: ARM native helper for fel-gpio
+
+pio: Manipulate PIO register dumps
+
+nand-part: Tool for manipulating Allwinner NAND partition tables
+
+jtag-loop.sunxi: ARM native boot helper to force the SD port into JTAG and then stop, to ease debugging of bootloaders.
+
+bootinfo: Dump information from Allwinner boot files (boot0/boot1) --type=sd include SD boot info --type=nand include NAND boot info (not implemented)
+
+phoenix_info: gives information about a phoenix image created by the phoenixcard utility and optionally extracts the embedded boot code & firmware file from their hidden partitions.
+
+meminfo: Tool for reading DRAM settings from registers. Compiled as a static binary for use on android and other OSes. To build this, get a toolchain, and run: make CROSS_COMPILE=arm-linux-gnueabihf- meminfo
+
+script-extractor: A simple tool, which can be executed on a rooted Android device to dump the script.bin blob from RAM via reading /dev/mem.
+
+### Flashing notes
 
 * If you flash CHIPs with the images contained in these backups they will still have the original NTC Debian package repositories configured. You will need to follow the instructions in the "package repository" page to repoint your CHIPs to this mirror.
 * If you use "CHIP-tools" to flash your CHIP you will have to alter the location of the image repositories. Instructions are on the CHIP-tools flash images page.
